@@ -3,9 +3,956 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Afsarun Begum | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Global Styles */
+      :root {
+        --primary: #4a6cf7;
+        --secondary: #6f42c1;
+        --dark: #1d2144;
+        --light: #f8f9fa;
+        --gray: #6c757d;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: var(--dark);
+        background-color: var(--light);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--primary);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--primary);
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .btn:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Header Styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--dark);
+        text-decoration: none;
+      }
+
+      .logo span {
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding-top: 150px;
+        padding-bottom: 100px;
+        background: linear-gradient(135deg, #f5f7ff 0%, #e6e9ff 100%);
+      }
+
+      .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .hero-text {
+        width: 50%;
+      }
+
+      .hero-text h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero-text p {
+        font-size: 18px;
+        color: var(--gray);
+        margin-bottom: 30px;
+      }
+
+      .hero-image {
+        width: 45%;
+        text-align: center;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-icons {
+        margin-top: 20px;
+      }
+
+      .social-icons a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: white;
+        color: var(--primary);
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-icons a:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* About Section */
+      .about-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .about-image {
+        width: 40%;
+        text-align: center;
+      }
+
+      .about-image img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-text {
+        width: 55%;
+      }
+
+      .about-text h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        margin-bottom: 15px;
+        color: var(--gray);
+      }
+
+      .info-list {
+        margin-top: 20px;
+      }
+
+      .info-list li {
+        margin-bottom: 10px;
+        list-style: none;
+      }
+
+      .info-list strong {
+        display: inline-block;
+        width: 100px;
+        color: var(--dark);
+      }
+
+      /* Skills Section */
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .skill-item {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      .skill-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-item i {
+        font-size: 40px;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .skill-item h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .skill-item p {
+        color: var(--gray);
+      }
+
+      /* Portfolio Section */
+      .portfolio-filters {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      .filter-btn {
+        padding: 8px 20px;
+        background: white;
+        border: none;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .portfolio-item {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(45, 48, 116, 0.8);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: var(--transition);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-overlay h3 {
+        color: white;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .portfolio-overlay p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 20px;
+      }
+
+      /* Contact Section */
+      .contact-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .contact-info {
+        width: 40%;
+      }
+
+      .contact-info h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .contact-info p {
+        margin-bottom: 20px;
+        color: var(--gray);
+      }
+
+      .contact-details {
+        margin-top: 30px;
+      }
+
+      .contact-details div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .contact-details i {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+
+      .contact-form {
+        width: 55%;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        outline: none;
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .footer-column {
+        width: 30%;
+      }
+
+      .footer-column h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--primary);
+      }
+
+      .footer-column p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 15px;
+      }
+
+      .footer-links li {
+        list-style: none;
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: white;
+        padding-left: 5px;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .hero-content,
+        .about-content,
+        .contact-container {
+          flex-direction: column;
+        }
+
+        .hero-text,
+        .hero-image,
+        .about-text,
+        .about-image,
+        .contact-info,
+        .contact-form {
+          width: 100%;
+        }
+
+        .hero-image,
+        .about-image {
+          margin-top: 40px;
+        }
+
+        .footer-content {
+          flex-direction: column;
+        }
+
+        .footer-column {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background: white;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .hero-text h1 {
+          font-size: 36px;
+        }
+
+        .section-title h2 {
+          font-size: 30px;
+        }
+      }
+    </style>
   </head>
   <body>
-    psort two many
+    <!-- Header -->
+    <header>
+      <div class="container navbar">
+        <a href="#" class="logo">Afsarun<span>.</span></a>
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>
+            Hi, I'm Afsarun Begum<br /><span style="color: var(--primary)"
+              >Web Developer</span
+            >
+          </h1>
+          <p>
+            I'm a passionate web developer specializing in building exceptional
+            digital experiences. Currently, I'm focused on building accessible,
+            human-centered products.
+          </p>
+          <a href="#portfolio" class="btn">View My Work</a>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://placehold.co/400x400/4a6cf7/FFFFFF?text=AB"
+            alt="Afsarun Begum"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-image">
+            <img
+              src="https://placehold.co/400x500/4a6cf7/FFFFFF?text=Afsarun+Begum"
+              alt="About Afsarun Begum"
+            />
+          </div>
+          <div class="about-text">
+            <h3>Curious about me? Here you have it:</h3>
+            <p>
+              I'm a passionate web developer with expertise in creating
+              stunning, user-friendly websites and applications. With a strong
+              foundation in both front-end and back-end technologies, I bring
+              ideas to life through clean, efficient code.
+            </p>
+            <p>
+              I am passionate about leveraging my diverse backgrounds to
+              decipher challenging problems and create delightful experiences. I
+              develop web applications with a focus on providing real value to
+              users and businesses.
+            </p>
+            <p>
+              When I'm not coding, you can find me exploring new technologies,
+              contributing to open-source projects, or enjoying a good book on
+              UX design principles.
+            </p>
+            <ul class="info-list">
+              <li><strong>Name:</strong> Afsarun Begum</li>
+              <li><strong>Email:</strong> afsarun.begum@example.com</li>
+              <li><strong>Age:</strong> 28 Years</li>
+              <li><strong>From:</strong> Dhaka, Bangladesh</li>
+            </ul>
+            <a href="#contact" class="btn">Hire Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>My Skills</h2>
+        </div>
+        <div class="skills-container">
+          <div class="skill-item">
+            <i class="fas fa-code"></i>
+            <h3>Web Development</h3>
+            <p>
+              Building responsive and dynamic websites using modern technologies
+              like HTML5, CSS3, JavaScript, and various frameworks.
+            </p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-paint-brush"></i>
+            <h3>UI/UX Design</h3>
+            <p>
+              Creating intuitive user interfaces with exceptional user
+              experiences, focusing on usability and aesthetic appeal.
+            </p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Responsive Design</h3>
+            <p>
+              Developing websites that work seamlessly across all devices, from
+              mobile phones to desktop computers.
+            </p>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-react"></i>
+            <h3>Frontend Frameworks</h3>
+            <p>
+              Experienced with React, Vue.js, and Angular for building complex,
+              interactive user interfaces.
+            </p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-server"></i>
+            <h3>Backend Development</h3>
+            <p>
+              Building server-side applications using Node.js, Express, Python,
+              and database management with MongoDB and MySQL.
+            </p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-search"></i>
+            <h3>SEO Optimization</h3>
+            <p>
+              Implementing SEO best practices to improve website visibility and
+              ranking on search engines.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-title">
+          <h2>My Portfolio</h2>
+        </div>
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web Design</button>
+          <button class="filter-btn" data-filter="app">App Development</button>
+          <button class="filter-btn" data-filter="brand">Branding</button>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="web">
+            <img
+              src="https://placehold.co/400x300/4a6cf7/FFFFFF?text=Web+Project+1"
+              alt="Project 1"
+            />
+            <div class="portfolio-overlay">
+              <h3>E-commerce Website</h3>
+              <p>Modern e-commerce platform with secure payment integration</p>
+              <a href="#" class="btn">View Project</a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="app">
+            <img
+              src="https://placehold.co/400x300/6f42c1/FFFFFF?text=App+Project+1"
+              alt="Project 2"
+            />
+            <div class="portfolio-overlay">
+              <h3>Fitness Tracker App</h3>
+              <p>Mobile application for tracking workouts and nutrition</p>
+              <a href="#" class="btn">View Project</a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="brand">
+            <img
+              src="https://placehold.co/400x300/1d2144/FFFFFF?text=Brand+Project+1"
+              alt="Project 3"
+            />
+            <div class="portfolio-overlay">
+              <h3>Brand Identity Design</h3>
+              <p>Complete brand identity for a tech startup</p>
+              <a href="#" class="btn">View Project</a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="web">
+            <img
+              src="https://placehold.co/400x300/4a6cf7/FFFFFF?text=Web+Project+2"
+              alt="Project 4"
+            />
+            <div class="portfolio-overlay">
+              <h3>Educational Platform</h3>
+              <p>Online learning management system</p>
+              <a href="#" class="btn">View Project</a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="app">
+            <img
+              src="https://placehold.co/400x300/6f42c1/FFFFFF?text=App+Project+2"
+              alt="Project 5"
+            />
+            <div class="portfolio-overlay">
+              <h3>Weather Application</h3>
+              <p>Real-time weather forecasting app</p>
+              <a href="#" class="btn">View Project</a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="brand">
+            <img
+              src="https://placehold.co/400x300/1d2144/FFFFFF?text=Brand+Project+2"
+              alt="Project 6"
+            />
+            <div class="portfolio-overlay">
+              <h3>Restaurant Branding</h3>
+              <p>Complete branding for a fine dining restaurant</p>
+              <a href="#" class="btn">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Me</h2>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Let's Talk About Your Project</h3>
+            <p>
+              Feel free to reach out if you're looking for a developer, have a
+              question, or just want to connect.
+            </p>
+            <div class="contact-details">
+              <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>123 Street, Dhaka, Bangladesh</span>
+              </div>
+              <div>
+                <i class="fas fa-envelope"></i>
+                <span>afsarun.begum@example.com</span>
+              </div>
+              <div>
+                <i class="fas fa-phone"></i>
+                <span>+880 1234 567890</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Afsarun Begum</h3>
+            <p>
+              A passionate web developer creating modern, responsive websites
+              and applications with a focus on user experience.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact Info</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Street, Dhaka,
+              Bangladesh
+            </p>
+            <p><i class="fas fa-envelope"></i> afsarun.begum@example.com</p>
+            <p><i class="fas fa-phone"></i> +880 1234 567890</p>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Afsarun Begum. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Portfolio Filtering
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          // Get filter value
+          const filterValue = button.getAttribute("data-filter");
+
+          // Show/hide portfolio items based on filter
+          portfolioItems.forEach((item) => {
+            if (
+              filterValue === "all" ||
+              item.getAttribute("data-category") === filterValue
+            ) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
